@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  //   width: 480px;
+}
+
+.meniu_icon {
+  height: 22px;
+  div {
+    width: 24px;
+    height: 4px;
+    background-color: black;
+    margin: 5px 0;
+    border-radius: 3px;
+  }
+}
+
+main {
+  width: 480px;
+  //   border: 1px solid black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin: 32px;
+  //   border: 1px solid black;
+  img {
+    // width: 198px;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 32px;
+  width: auto;
+  background-image: url(assets/graphic.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-x: 210px;
+  background-position-y: -50px;
+}
+
+.text {
+  width: 61%;
+  margin-top: 38px;
+  font-family: Inter;
+  font-style: normal;
+}
+h3 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.1em;
+  color: #ff3998;
+}
+h1 {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 58px;
+  color: #111111;
+}
+p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.upsell {
+  background-image: url(assets/background.svg);
+  height: 326px;
+}
