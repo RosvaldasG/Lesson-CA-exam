@@ -278,9 +278,15 @@ table {
       format("svg"); /* Legacy iOS */
 }
 
+body {
+  background-color: #eeeeee;
+}
+
 main {
   max-width: 1280px;
   margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
 }
 
 .meniu_icon {
@@ -294,6 +300,10 @@ main {
   }
 }
 
+.meniu_norm {
+  display: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -301,22 +311,53 @@ main {
   padding: 32px 32px 0;
 }
 
+@media screen and (min-width: 800px) {
+  .meniu_icon div {
+    display: none;
+  }
+  .meniu_norm {
+    display: flex;
+    align-items: center;
+    :nth-child(4) {
+      color: #ff3998;
+    }
+    a {
+      text-decoration: inherit;
+      color: inherit;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 100%;
+      padding-left: 28px;
+    }
+  }
+
+  .header {
+    margin: 0 auto 182px;
+    padding: 70px 80px 0;
+  }
+}
+
 .hero {
   display: flex;
   margin-left: 32px;
   margin-bottom: 56px;
+  // overflow: hidden;
 }
 
 .graphic {
   position: absolute;
-  z-index: -1;
+  z-index: 1;
+  // left: -105px;
 }
 .graphic img {
-  object-position: center top;
   width: 100%;
+  object-position: center top;
   object-position: 190px -46px;
   object-fit: cover;
 }
+
 .text {
   width: 69%;
   padding-top: 38px;
@@ -343,19 +384,48 @@ main {
     line-height: 150%;
     margin-bottom: 32px;
   }
-  .signup {
-    border: 2px transparent;
-    border-image: url(/assets/background.svg) 20 round;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    height: 75px;
-    width: 188px;
-    border: 2px solid;
-  }
 }
 
+.signup {
+  padding: 1px 1px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  height: 75px;
+  width: 188px;
+  border: 2px solid #0000;
+  background: linear-gradient(white) padding-box,
+    linear-gradient(to right, red, yellow) border-box;
+}
+
+@media screen and (min-width: 800px) {
+  .graphic {
+    position: inherit;
+    img {
+      width: 180%;
+      object-position: inherit;
+      object-position: -40px -85px;
+      object-fit: cover;
+    }
+  }
+  .text {
+    width: 104%;
+    :nth-child(2) {
+      font-weight: 900;
+      font-size: 96px;
+      line-height: 116px;
+      color: #111111;
+      margin-bottom: 24px;
+    }
+  }
+  .hero {
+    margin-left: 80px;
+    margin-right: 240px;
+    margin-bottom: 56px;
+  }
+}
+// *********
 .upsell {
   background-image: url(assets/background.svg);
   background-repeat: no-repeat;
@@ -381,6 +451,22 @@ main {
   }
 }
 
+@media screen and (min-width: 800px) {
+  .upsell {
+    margin: 0 80px;
+    background-size: cover;
+    background-position: inherit;
+    .text_free {
+      :nth-child(1) {
+        padding-top: 134px;
+      }
+      :nth-child(2) {
+        padding-bottom: 64px;
+      }
+    }
+  }
+}
+
 .press {
   padding-top: 64px;
   margin-bottom: 56px;
@@ -402,6 +488,9 @@ main {
     :nth-child(2) {
       margin-bottom: 23px;
     }
+    :nth-child(5) {
+      display: none;
+    }
   }
   img {
     width: auto;
@@ -409,9 +498,30 @@ main {
   }
 }
 
+@media screen and (min-width: 800px) {
+  .press {
+    padding-top: 184px;
+    margin-bottom: 120px;
+    .press_container {
+      padding: 0 80px;
+    }
+    .row {
+      :nth-child(5) {
+        display: inherit;
+      }
+    }
+  }
+}
+
 .showcase {
   padding: 0 0 0 32px;
   padding-bottom: 94px;
+}
+
+@media screen and (min-width: 800px) {
+  .showcase {
+    padding: 0 80px;
+  }
 }
 
 .showcase_cont {
@@ -515,23 +625,30 @@ main {
 }
 
 .foot_hero {
-  display: flex;
+  display: inline-flex;
   margin-left: 32px;
-  margin-bottom: 56px;
-}
-.foot_graphic {
-  position: absolute;
-  z-index: -1;
-}
-.foot_graphic img {
-  // object-position: center;
-  // width: auto;
-  // object-position: 60px 110px;
-  // object-fit: cover;
+  padding-bottom: 56px;
+  overflow: hidden;
 }
 
-.oot_text {
-  width: 69%;
+@media screen and (min-width: 800px) {
+  .foot_hero {
+    margin: 0 80px;
+  }
+}
+
+.foot_graphic {
+  position: relative;
+  z-index: 1;
+  left: 20px;
+  top: 110px;
+}
+.foot_graphic img {
+  width: 105%;
+}
+
+.foot_text {
+  width: 54%;
   padding-top: 38px;
   font-family: "Inter";
   font-style: normal;
@@ -556,15 +673,118 @@ main {
     line-height: 150%;
     margin-bottom: 32px;
   }
-  .signup {
-    border: 2px transparent;
-    border-image: url(/assets/background.svg) 20 round;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    height: 75px;
-    width: 188px;
-    border: 2px solid;
+  // .signup {
+  // // border: 2px transparent;
+  // border-image: url(/assets/background.svg) 20 round;
+  // border-radius: 50px;
+  // font-weight: 600;
+  // font-size: 20px;
+  // line-height: 30px;
+  // height: 75px;
+  // width: 188px;
+  // border: 2px solid;
+  // margin-bottom: 66px;
+  // }
+}
+
+.divider {
+  height: 2px;
+  background-color: #eeeeee;
+  margin-bottom: 66px;
+}
+
+footer {
+  padding: 0 32px;
+}
+
+.left_logo {
+  margin-bottom: 32px;
+}
+
+.left p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  margin-bottom: 32px;
+}
+
+.icons {
+  margin-bottom: 32px;
+  img {
+    margin-right: 16px;
+    width: 18px;
+    height: 18px;
+    color: #999999;
+  }
+}
+.container {
+  font-family: "Inter";
+  font-style: normal;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+.container a {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  padding: 5px 0;
+}
+
+.container h3 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.1em;
+  padding: 40px 0 28px 0;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  padding-top: 64px;
+  padding-bottom: 105px;
+  :nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  footer {
+    padding: 0 80px;
+  }
+  .left_right {
+    display: flex;
+    justify-content: space-between;
+  }
+  .right {
+    width: 60%;
+  }
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    :nth-child(2) {
+      display: inherit;
+    }
+  }
+  .container h3 {
+    padding: 0px 0 28px 0;
   }
 }
